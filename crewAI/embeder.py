@@ -1,0 +1,1 @@
+from crewai.memory.base import EmbeddingFunctionBase

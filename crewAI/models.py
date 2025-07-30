@@ -16,11 +16,14 @@ class CustomerLLM(BaseLLM):
         tools: Optional[List[dict]] = None,
         callbacks: Optional[List[Any]] = None,
         available_functions: Optional[Dict[str, Any]] = None,
+        from_task: Optional[Any] = None,
+        from_agent: Optional[Any] = None,
+        **kwargs
     ) -> Union[str, Any]:
         """Call the LLM with the given messages."""
         # Convert string to message format if needed
         if isinstance(messages, str):
-            messages = [{"role": "user"}, "content": messages]
+            messages = [{"role": "user", "content": messages}]
         
         # Prepare request
         payload = {
